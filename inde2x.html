@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered History Hub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            width: 60%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        .chat-box {
+            height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background: #fff;
+        }
+        .input-box {
+            margin-top: 10px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+        }
+        button {
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .content {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .footer {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #ddd;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function sendMessage() {
+            let userInput = document.getElementById("user-input").value;
+            let chatBox = document.getElementById("chat-box");
+            
+            if (userInput.trim() === "") return;
+            
+            chatBox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
+            document.getElementById("user-input").value = "";
+            
+            let responses = {
+                "who was ashoka": "Ashoka was an Indian emperor of the Maurya Dynasty, ruling from 268 to 232 BCE.",
+                "what is the indus valley civilization": "The Indus Valley Civilization was one of the world's earliest urban cultures, flourishing around 2500 BCE.",
+                "who built the taj mahal": "The Taj Mahal was built by Mughal Emperor Shah Jahan in memory of his wife Mumtaz Mahal.",
+                "what caused world war 2": "World War 2 was caused by multiple factors, including the Treaty of Versailles, the rise of totalitarian regimes, and the invasion of Poland by Germany in 1939."
+            };
+            
+            let botReply = responses[userInput.toLowerCase()] || "I'm not sure about that. Try asking something else about history!";
+            
+            chatBox.innerHTML += `<p><strong>Bot:</strong> ${botReply}</p>`;
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    </script>
+</head>
+<body>
+    <h1>AI-Powered History Hub</h1>
+    <nav>
+        <a href="#chat">Chatbot</a> | <a href="#articles">Articles</a> | <a href="#gallery">Gallery</a> | <a href="#forum">Forum</a> | <a href="#quiz">Quizzes</a>
+    </nav>
+    
+    <div class="container" id="chat">
+        <h2>History Chatbot</h2>
+        <div class="chat-box" id="chat-box"></div>
+        <div class="input-box">
+            <input type="text" id="user-input" placeholder="Ask a history question...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    
+    <div class="container" id="articles">
+        <h2>Historical Articles</h2>
+        <div class="content">
+            <h3>Jaunsar Bawar - A Tribal Legacy</h3>
+            <p>Jaunsar Bawar is a region in Uttarakhand known for its unique traditions and history.</p>
+        </div>
+    </div>
+    
+    <div class="container" id="gallery">
+        <h2>Image Gallery</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Mohenjo-daro_Sindh.jpeg" alt="Mohenjo Daro" width="100%">
+        <p>Mohenjo Daro - Indus Valley Civilization</p>
+    </div>
+    
+    <div class="footer">
+        <p>© 2025 AI-Powered History Hub. All rights reserved.</p>
+    </div>
+</body>
+</html>
+
